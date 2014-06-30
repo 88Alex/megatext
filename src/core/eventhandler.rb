@@ -3,7 +3,17 @@ module MegaText
 	end
 	class ProgramStartEvent < Event
 	end
+	class FileOpenRequestedEvent < Event
+		def initialize(filename)
+			@filename = filename
+		end
+	end
 	class FileOpenEvent < Event
+		def initialize(filename)
+			@filename = filename
+		end
+	end
+	class FileCloseRequestedEvent < Event
 		def initialize(filename)
 			@filename = filename
 		end
@@ -15,6 +25,7 @@ module MegaText
 	end
 	class ProgramCloseEvent < Event
 	end
+
 	class EventHandler
 		@eventListeners = Hash.new
 		def self.addEventType(eventName)
