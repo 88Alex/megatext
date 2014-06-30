@@ -4,7 +4,7 @@ module MegaText
 	class MainWindow < Qt::MainWindow
 		def initialize(parent = nil)
 			super(parent)
-			setTitle("MegaText")
+			setWindowTitle("MegaText")
 			setCentralWidget(EditorWidget.new(self))
 			@fileMenu = menuBar().addMenu("File")
 			@newAction = @fileMenu.addAction("New File")
