@@ -23,6 +23,16 @@ module MegaText
 			@filename = filename
 		end
 	end
+	class ProjectOpenRequestedEvent < Event
+		def initialize(projectname)
+			@projectname = projectname
+		end
+	end
+	class ProjectOpenEvent < Event
+		def initialize(projectname)
+			@projectname = projectname
+		end
+	end
 	class ProgramCloseEvent < Event
 	end
 
