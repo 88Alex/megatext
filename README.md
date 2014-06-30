@@ -30,3 +30,9 @@ adjusted and configured to the user's preferences.
 MegaText is very extensible, and provides a convenient extension API
 for developers to use. Developing useful extensions becomes easy.
 And you can share your extensions in the Extension Repository.
+
+### Modularity
+
+MegaText has a very modular design. If you don't like one component,
+you can rip it out and make your own. This modularity also makes
+developing extensions easy.
