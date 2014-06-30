@@ -17,9 +17,9 @@ module MegaText
 	end
 	class EventHandler
 		@eventListeners = Hash.new
-		def self.addEventType(eventClass)
-			return if @eventListeners.has_key? eventClass
-			@eventListeners << {eventClass => []}
+		def self.addEventType(eventName)
+			MegaText.const_set(eventName, Class.new {})
+			@eventListeners << {MegaText.const_get(eventName) => []}
 		end
 		def self.addEventListener(eventClass, proc)
 			return if not @eventListeners.has_key? eventClass
