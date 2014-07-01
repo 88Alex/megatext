@@ -19,15 +19,30 @@ module MegaText
 		def newProject()
 			# TODO
 		end
+
+		def createMenus()
+            @fileMenu = menuBar().addMenu("File")
+            @newAction = @fileMenu.addAction("New File")
+            @newProjAction = @fileMenu.addAction("New Project")
+            @openAction = @fileMenu.addAction("Open File")
+            @openProjAction = @fileMenu.addAction("Open Project")
+		end
+
 		def initialize(parent = nil)
 			super(parent)
 			setWindowTitle("MegaText")
-			setCentralWidget(EditorWidget.new(self))
-			@fileMenu = menuBar().addMenu("File")
-			@newAction = @fileMenu.addAction("New File")
-			@newProjAction = @fileMenu.addAction("New Project")
-			@openAction = @fileMenu.addAction("Open File")
-			@openProjAction = @fileMenu.addAction("Open Project")
+			centerWidget = Qt::Widget.new do
+				@layout = Qt::GridLayout.new do
+					@fsModel = Qt::FileSystemModel.new
+					@fsView = Qt::TreeView.new 
+					@fsView.setModel(@fsModel)
+					addWidget(@fsView, 0, 0, 1, 1)
+					@editor = EditorWidget.new
+					addWidget(@editor, 1, 0, 4, 1)
+				end
+				setLayout(@layout)
+			end
+			self.centralWidget = centerWidget
 		end
 	end
 end

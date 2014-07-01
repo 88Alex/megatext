@@ -2,7 +2,7 @@ require 'Qt4'
 
 module MegaText
 	class EditorWidget < Qt::TabWidget
-		def initialize(parent = 0)
+		def initialize(parent = nil)
 			super(parent)
 		end
 	end
