@@ -40,7 +40,7 @@ module MegaText
 		@eventListeners = Hash.new
 		def self.addEventType(eventName)
 			MegaText.const_set(eventName, Class.new {})
-			@eventListeners << {MegaText.const_get(eventName) => []}
+			@eventListeners.merge! {MegaText.const_get(eventName) => []}
 		end
 		def self.addEventListener(eventClass, proc)
 			return if not @eventListeners.has_key? eventClass
