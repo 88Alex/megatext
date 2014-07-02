@@ -7,31 +7,37 @@ module MegaText
 		def initialize(filename)
 			@filename = filename
 		end
+        attr_accessor :filename
 	end
 	class FileOpenEvent < Event
 		def initialize(filename)
 			@filename = filename
 		end
+        attr_accessor :filename
 	end
 	class FileCloseRequestedEvent < Event
 		def initialize(filename)
 			@filename = filename
 		end
+        attr_accessor :filename
 	end
 	class FileCloseEvent < Event
 		def initialize(filename)
 			@filename = filename
 		end
+        attr_accessor :filename
 	end
 	class ProjectOpenRequestedEvent < Event
-		def initialize(projectname)
-			@projectname = projectname
+		def initialize(projectroot)
+			@projectroot = projectroot
 		end
+        attr_accessor :projectroot
 	end
 	class ProjectOpenEvent < Event
 		def initialize(projectname)
-			@projectname = projectname
+			@projectname = projectroot
 		end
+        attr_accessor :projectroot
 	end
 	class ProgramCloseEvent < Event
 	end
